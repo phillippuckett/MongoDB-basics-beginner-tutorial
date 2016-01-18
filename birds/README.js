@@ -1,3 +1,4 @@
+/*
 # mini-birds
 ## Objectives
 The purpose of this project is to solidify your understanding of the MongoDB API.  By the end of the project, you should know how to perform CRUD operations in MongoDB and view your data (via command line or a GUI).
@@ -11,7 +12,7 @@ We are going to build a bird-sighting API.  Consumers (or, developers who use th
 
 We will need to set up our app, create a Node/Express API, and then hook the API up to our database.
 
-## Step 1: Setting Up
+######## STEP 1: Setting Up ########
 
 Initialize your Node app and install the following packages:
  * `express`
@@ -25,7 +26,8 @@ After you have initialized your app, connect to your database via MongoJS.  This
 
 **Breakpoint:** At this point, you should be able to start your app (`node server.js`) and see that your app is listening, and have no errors.  Your app should also be connected to your database, but we will test that functionality later on.
 
-## Step 2: Create API
+
+######## STEP 2: Create API ########
 
 Create 'POST', 'GET', 'PUT', and 'DELETE' endpoints for `/api/sighting`
 
@@ -38,7 +40,7 @@ In POSTMan, test each of these endpoints with:
 
 **Breakpoint:** You should be able to hit these endpoints without error.  To make sure they're actually running correctly, put `console.log` in your functions and hit those endpoints with POSTMan to see that they're running.  For the routes that take queries, `console.log` those queries and make sure you're getting them correctly.  We have not connected these routes to the database yet.  We will add that functionality in the next step.
 
-## Step 3: Connect API to MongoDB
+######## STEP 3: Connect API to MongoDB ########
 
 NOTE: I will refer to two different types of queries here.  If I say request query, I mean the query supplied from the front-end via the URL.  Otherwise, I mean a MongoDB query.
 
@@ -57,3 +59,4 @@ NOTE: I will refer to two different types of queries here.  If I say request que
 ===========
 
 Congrats!  You've just created your first true CRUD app.  You can now create, read, update, and delete bird sightings, and they will persist, even if you refresh your browser or reboot your server.  Woo!
+*/

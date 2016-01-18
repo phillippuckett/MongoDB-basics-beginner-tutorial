@@ -2,32 +2,32 @@
 
 {
     "birds": [{
-        "name": "red breasted merganser", 
+        "name": "Red Breasted Merganser", 
         "order": "Anseriformes", 
         "status": "least concern"
     },
     {
-        "name": "cedar waxwing", 
+        "name": "Cedar Waxwing", 
         "order": "Passeriformes", 
         "status": "least concern"
     },
     {
-        "name": "osprey", 
+        "name": "Osprey", 
         "order": "Accipitriformes",
         "status": "least concern"
     },
     {
-        "name": "snowy plover", 
+        "name": "Snowy Plover", 
         "order": "Charadriformes", 
         "status": "least concern"
     },
     {
-        "name": "passenger pigeon",
+        "name": "Passenger Pigeon",
         "order": "Columbiformes",
         "status": "extinct"
     },
     {
-        "name": "greater sage grouse",
+        "name": "Greater Sage Grouse",
         "order": "GALLIFORMES", 
         "status": "near threatened"
     }]

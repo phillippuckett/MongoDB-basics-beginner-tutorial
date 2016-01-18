@@ -1,22 +1,24 @@
+/* mongodb.org/manual/reference/operator... */
+
 // REQUIRE //
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongojs = require('mongojs');
 var cors = require('cors');
+var objectId = require('mongodb').objectId;
 
-// APP Express //
+// How to invoke the express() by calling upon 'app'//
 var app = express();
 app.use(bodyParser.json());
 
-// CONTROLLERS //
-
-
-// Run MongoD //
+// How to connect to the Mongo Database, passing through 'birds' and 'sightings' //
 var db = mongojs('birds', ['sightings']);
 
-// OPERATIONS //
+// POST //
 app.post('/api/sighting', function (req, res, next) {
+
     var dataToInsert = req.body;
+
     db.sightings.insert(dataToInsert, function (err, result) {
         if (err) {
             res.status(500).end();
@@ -24,17 +26,43 @@ app.post('/api/sighting', function (req, res, next) {
         res.send(result);
     });
 });
+
+// GET //
 app.get('/api/sighting', function (req, res, next) {
-    console.log('get hit');
-    res.end();
+    db.sightings.find({}, function (err, result) {
+        res.send(result);
+    });
 });
-app.delete('/api/sighting', function (req, res, next) {
-    console.log('put hit');
-    res.end();
+
+// DELETE //
+app.delete('/api/sighting/:id', function (req, res, next) {
+
+    var idToDelete = objectId(req.params.id);
+
+    db.sightings.remove({ _id: idToDelete }),
+    function (err, result) {
+        if (err || result.n === 0) {
+            res.status(500).send('Failed to delete');
+        }
+        res.send('Successfully deleted record');
+    }
 });
-app.put('/api/sighting', function (req, res, next) {
-    console.log('put hit');
-    res.end();
+
+// PUT //
+app.put('/api/sighting/:id', function (req, res, next) {
+
+    var idToModify = objectId(req.params.id);
+
+    var updateObject = {
+        query: { _id: idToModify },
+        // update: { $set: { req.body } },
+        update: req.body,
+        new: false
+    }
+
+    db.sightings.findAndModify(updateObject, function (err, result) {
+        res.send(result);
+    });
 });
 
 // PORT //

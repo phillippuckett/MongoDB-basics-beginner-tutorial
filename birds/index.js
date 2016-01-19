@@ -1,5 +1,3 @@
-/* mongodb.org/manual/reference/operator... */
-
 /** REQUIRE*/
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -62,3 +60,5 @@ var nodePort = 3000;
 app.listen(nodePort, function () {
     console.log('Listening on port ' + nodePort);
 });
+
+/* mongodb.org/manual/reference/operator... */
